@@ -1,0 +1,9 @@
+@import './shared/styles/colors.scss';
+@import './shared/styles/variables.scss';
+
+.container {
+    margin-top: $header-height;
+    height: calc(100% - #{$header-height});
+    width: 100%;
+    background-color: $white;
+}

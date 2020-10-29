@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="header">
+    <fa-icon [icon]="faChevronLeft" (click)="previousDay()"></fa-icon>
+    <div>
+      <h2 class="title">Schedule an appointment:</h2>
+      <h3 class="current-date">{{currentDate | date}}</h3>
+    </div>
+    <fa-icon [icon]="faChevronRight" (click)="nextDay()"></fa-icon>
+  </div>
+  <div class="list">
+    <div class="card" [ngClass]="{'booked': appointment.state === AppointmentState.BOOKED}" *ngFor="let appointment of appointmentList; let i = index">
+      <h1 class="card-title">{{appointment.date | date:'shortTime'}}</h1>
+      <button class="button-schedule" (click)="schedule(i)" [disabled]="appointment.state === AppointmentState.BOOKED">{{appointment.state === AppointmentState.BOOKED ? 'Booked' : 'Free'}}</button>
+    </div>
+  </div>
+</div>
